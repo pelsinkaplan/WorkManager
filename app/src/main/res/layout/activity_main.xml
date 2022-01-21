@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/book"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hour_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="1"
+        android:textSize="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/down_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/arrow"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="@+id/hour_textView"
+        app:layout_constraintEnd_toStartOf="@+id/hour_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hour_textView" />
+
+    <Button
+        android:id="@+id/up_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/hour_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hour_textView"
+        app:layout_constraintTop_toTopOf="@+id/hour_textView" />
+
+    <Button
+        android:id="@+id/okey_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tamam"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hour_textView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
