@@ -1,6 +1,6 @@
 # Book Reminder
 
-Bu repo WorkManager kütphanesi kullanılarak kullanıcıya istediği saat aralığında bildirim gönderen bir Android Projesinin kaynak kodlarını içermektedir.
+Bu repo WorkManager kütphanesi kullanılarak kullanıcıya istediği saat aralığında bildirim gönderen bir Kitap Okuma Hatırlatıcı diyerek adlandırabileceğimiz bir Android Projesinin kaynak kodlarını içermektedir.
 
 **WorkManager nedir, ne için kullanılır?**
 
