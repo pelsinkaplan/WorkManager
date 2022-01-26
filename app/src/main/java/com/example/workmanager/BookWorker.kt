@@ -63,8 +63,8 @@ class BookWorker(
         //Notificaiton ın özelliklerini belirtiyoruz.
         builder = NotificationCompat.Builder(applicationContext, channelId)
         builder
-            .setContentTitle("Kitap Hatırlatıcı Geldi Hanım Abla!")
-            .setContentText("Bugün kitap okudun mu? Aman zincir kırılmasın!")
+            .setContentTitle("Bugün kitap okudun mu?")
+            .setContentText("Aman kitap zincirin kırılmasın!")
             .setSmallIcon(R.drawable.star_on)
             .setAutoCancel(true)
             .setContentIntent(contentToGo)
