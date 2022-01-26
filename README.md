@@ -1,6 +1,6 @@
 # Book Reminder
 
-Bu repo WorkManager kütphanesi kullanılarak kullanıcıya istediği saat aralığında bildirim gönderen bir Kitap Okuma Hatırlatıcı diyerek adlandırabileceğimiz bir Android Projesinin kaynak kodlarını içermektedir.
+Bu repo WorkManager kütphanesi kullanılarak kullanıcıya istediği saat aralığında bildirim gönderen bir Kitap Okuma Hatırlatıcı şeklinde adlandırabileceğimiz bir Android Projesinin kaynak kodlarını içermektedir.
 
 **WorkManager nedir, ne için kullanılır?**
 
@@ -11,9 +11,11 @@ Bu repo WorkManager kütphanesi kullanılarak kullanıcıya istediği saat aral�
 - Aynı zamanda pil dostu bir yapıdır.
 - Tek seferlik çalışmalar için OneTimeWorkRequest, periyodik çalışmalar için ise PeriodicWorkRequest yapısı kullanılır.
 
-- **Worker :** Arka planda gerçekleşecek görevin tanımlandığı class. Worker classını extend eder ve doWork() metodunu override ederek çalışır.
-- **WorkRequest :** Worker üzerinde belirtilen görevin ne zaman ve nasıl çalışacağını yapılandırmak için kullanılan yapıdır. Şartları özelleştirmek için Constraints yapısı kullanılabilir.
-- **WorkManager :** WorkRequest'i planlayan ve çalıştıran class'tır.
+**Worker :** Arka planda gerçekleşecek görevin tanımlandığı class. Worker classını extend eder ve doWork() metodunu override ederek çalışır.
+
+**WorkRequest :** Worker üzerinde belirtilen görevin ne zaman ve nasıl çalışacağını yapılandırmak için kullanılan yapıdır. Şartları özelleştirmek için Constraints yapısı kullanılabilir.
+
+**WorkManager :** WorkRequest'i planlayan ve çalıştıran class'tır.
 
 Bu projede kullanıcının tercihine göre belirlenen saat aralıklarıyla periyodik olarak bildirim gönderme işlemi yapılmıştır. Kitap okumayı belirli saat aralıklarında hatırlatmak amaçlanmıştır ve bildirim göndermek için Notification yapısı kullanılmıştır.
 
@@ -30,7 +32,32 @@ PeriodicWorkRequestBuilder<BookWorker>(hour.toLong(), TimeUnit.HOURS).build()
 - Periyodik bir çalışma sunacağımız için PeriodicWorkRequestBuilder kullandık.
 - Saatlik bir değişim planladığımız için bunu requestimizde belirttik. 
 - Oluşturduğumuz Worker(BookWorker) classını da dahil ederek requestimizi oluşturduk.
-- Periyodik düzende kullanıcının tercih etmiş olduğu saat aralığı bittikten sonra BookWorker classımızdaki doWork() metodu çalışacak ve BookWorker classı içerisinde tanımlamış olduğumuz Notification çalışacaktır.
+- Periyodik düzende kullanıcının tercih etmiş olduğu saat aralığı bittikten sonra BookWorker classımızdaki doWork() metodu çalışacak ve BookWorker classı içerisinde tanımlamış olduğumuz bildirim çalışacaktır.
+
+**Nasıl bildirim gönderdik?**
+
+- NotificationManager yapısını kullanarak bir manager oluşturduk. 
+
+```
+val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+```
+
+- Ayrıca intent yapısını kullanarak, bildirime tıklandığında hangi sayfanın açılacağını belirttik.
+- Bildirimin yayınlanacağı kanalı belirlemek için NotificationChannel yapısını kullandık ve bunu NotificationManager ile gösterdik.
+- Ardından oluşturacağımız bildirimin özelliklerini belirtip, bildirimi build ettik.
+
+```
+        NotificationCompat.Builder(applicationContext, channelId)
+            .setContentTitle("Bugün kitap okudun mu?")
+            .setContentText("Aman kitap zincirin kırılmasın!")
+            .setSmallIcon(R.drawable.star_on)
+            .setAutoCancel(true)
+            .setContentIntent(contentToGo)
+```
+
+Sonuç olarak aşağıdaki notificationu elde ettik.
+
+<img src="https://github.com/pelsinkaplan/WorkManager/blob/master/book_reminder_notification_image.jfif" width="400" height="100">
 
 
 
