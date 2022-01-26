@@ -11,9 +11,9 @@ Bu repo WorkManager kütphanesi kullanılarak kullanıcıya istediği saat aral�
 - Aynı zamanda pil dostu bir yapıdır.
 - Tek seferlik çalışmalar için OneTimeWorkRequest, periyodik çalışmalar için ise PeriodicWorkRequest yapısı kullanılır.
 
-**Worker :** Arka planda gerçekleşecek görevin tanımlandığı class. Worker classını extend eder ve doWork() metodunu override ederek çalışır.
-**WorkRequest :** Worker üzerinde belirtilen görevin ne zaman ve nasıl çalışacağını yapılandırmak için kullanılan yapıdır. Şartları özelleştirmek için Constraints yapısı kullanılabilir.
-**WorkManager :** WorkRequest'i planlayan ve çalıştıran class'tır.
+- **Worker :** Arka planda gerçekleşecek görevin tanımlandığı class. Worker classını extend eder ve doWork() metodunu override ederek çalışır.
+- **WorkRequest :** Worker üzerinde belirtilen görevin ne zaman ve nasıl çalışacağını yapılandırmak için kullanılan yapıdır. Şartları özelleştirmek için Constraints yapısı kullanılabilir.
+- **WorkManager :** WorkRequest'i planlayan ve çalıştıran class'tır.
 
 Bu projede kullanıcının tercihine göre belirlenen saat aralıklarıyla periyodik olarak bildirim gönderme işlemi yapılmıştır. Kitap okumayı belirli saat aralıklarında hatırlatmak amaçlanmıştır ve bildirim göndermek için Notification yapısı kullanılmıştır.
 
